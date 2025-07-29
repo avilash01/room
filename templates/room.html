@@ -7,19 +7,13 @@
 <body class="gradient-bg">
     <div class="top-bar">
         <span class="role-badge">{{ user_type|capitalize }}</span>
-        <button onclick="leaveRoom()">Leave Room</button>
+        <div>
+            <button onclick="startScreenShare()">Share Screen</button>
+            <button onclick="leaveRoom()">Leave Room</button>
+        </div>
     </div>
 
-    <div class="video-container">
-        <div class="video-box" id="lawyer-box">
-            <h2>Lawyer</h2>
-            <video id="lawyerVideo" autoplay playsinline></video>
-        </div>
-        <div class="video-box" id="client-box">
-            <h2>Client</h2>
-            <video id="clientVideo" autoplay playsinline></video>
-        </div>
-    </div>
+    <div class="video-container"></div>
 
     <div class="chat-section">
         <div id="messages"></div>
