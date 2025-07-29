@@ -60,7 +60,6 @@ function addVideoStream(video, stream) {
     video.addEventListener('loadedmetadata', () => video.play());
 }
 
-// Chat
 document.getElementById('chatForm').addEventListener('submit', (e) => {
     e.preventDefault();
     const msg = document.getElementById('chatInput').value;
@@ -89,7 +88,6 @@ function leaveRoom() {
     window.location.href = '/';
 }
 
-// Screen Share
 function startScreenShare() {
     navigator.mediaDevices.getDisplayMedia({ video: true }).then(screenStream => {
         for (let peerId in peers) {
