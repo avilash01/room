@@ -1,0 +1,87 @@
+body.gradient-bg {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #3f0d88, #0f0c29);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    background: #ffffff22;
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-top: 10vh;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+input, select, button {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+}
+
+button {
+    background: #5a00b2;
+    color: white;
+    cursor: pointer;
+}
+
+.video-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    width: 100%;
+}
+
+.video-box {
+    flex: 1;
+    padding: 10px;
+    max-width: 45%;
+    background: #1d1b3f;
+    border-radius: 1rem;
+    box-shadow: 0 0 12px rgba(255,255,255,0.1);
+}
+
+video {
+    width: 100%;
+    border-radius: 10px;
+    background: black;
+}
+
+.chat-section {
+    width: 80%;
+    margin-top: 20px;
+}
+
+#messages {
+    height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    background: #2a264f;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#chatInput {
+    width: 80%;
+}
+
+.top-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.role-badge {
+    background: #e5d5ff;
+    color: #340065;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+}

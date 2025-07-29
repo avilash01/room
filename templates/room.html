@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Room</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="gradient-bg">
+    <div class="top-bar">
+        <span class="role-badge">{{ user_type|capitalize }}</span>
+        <button onclick="leaveRoom()">Leave Room</button>
+    </div>
+
+    <div class="video-container">
+        <div class="video-box" id="lawyer-box">
+            <h2>Lawyer</h2>
+            <video id="lawyerVideo" autoplay playsinline></video>
+        </div>
+        <div class="video-box" id="client-box">
+            <h2>Client</h2>
+            <video id="clientVideo" autoplay playsinline></video>
+        </div>
+    </div>
+
+    <div class="chat-section">
+        <div id="messages"></div>
+        <form id="chatForm">
+            <input type="text" id="chatInput" placeholder="Type a message..." required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script>
+        const room = "{{ room_name }}";
+        const user = "{{ user_type }}";
+    </script>
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+    <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

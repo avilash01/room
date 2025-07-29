@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Join Room</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="gradient-bg">
+    <div class="card">
+        <h1>Join Room</h1>
+        <form method="post">
+            <input type="text" name="room" placeholder="Enter Room ID" required><br>
+            <select name="user_type" required>
+                <option value="">Select Role</option>
+                <option value="lawyer">Lawyer</option>
+                <option value="client">Client</option>
+            </select><br>
+            <button type="submit">Join</button>
+        </form>
+    </div>
+</body>
+</html>
