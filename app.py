@@ -10,10 +10,6 @@ def index():
     if request.method == 'POST':
         room = request.form['room']
         user_type = request.form['user_type']
-        if room not in rooms:
-            rooms[room] = []
-        if len(rooms[room]) >= 2:
-            return "Room full!"
         return redirect(url_for('room', room_name=room, user_type=user_type))
     return render_template('index.html')
 
@@ -25,23 +21,23 @@ def room(room_name, user_type):
 def handle_join(data):
     room = data['room']
     user = data['user']
+    peer_id = data['peerId']
+
     if room not in rooms:
         rooms[room] = []
-    if len(rooms[room]) >= 2:
-        emit('room-full')
-    else:
-        join_room(room)
-        rooms[room].append(user)
-        emit('user-joined', {'user': user}, to=room)
+    join_room(room)
+    rooms[room].append({'user': user, 'peerId': peer_id})
+
+    emit('user-connected', {'peerId': peer_id}, room=room, include_self=False)
 
 @socketio.on('leave-room')
 def handle_leave(data):
     room = data['room']
     user = data['user']
     leave_room(room)
-    if user in rooms.get(room, []):
-        rooms[room].remove(user)
-    emit('user-left', {'user': user}, to=room)
+    if room in rooms:
+        rooms[room] = [u for u in rooms[room] if u['user'] != user]
+        emit('user-left', {'user': user}, to=room)
 
 if __name__ == '__main__':
     socketio.run(app, debug=True)
