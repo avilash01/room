@@ -9,7 +9,6 @@ const lawyerVideo = document.getElementById('lawyerVideo');
 const clientVideo = document.getElementById('clientVideo');
 const messages = document.getElementById('messages');
 
-// Get media
 navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then(stream => {
     localStream = stream;
 
